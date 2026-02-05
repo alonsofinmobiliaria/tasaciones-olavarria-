@@ -48,6 +48,21 @@
   margin: 0 auto 25px;
   display: block;
 }
+.cta-btn{
+  background:var(--secondary);
+  color:white;
+  padding:16px;
+  border:none;
+  border-radius:40px;
+  font-size:1.05rem;
+  font-weight:700;
+  cursor:pointer;
+  width:100%;
+}
+
+.cta-btn:hover{
+  opacity:0.9;
+}
     footer{background:var(--primary);color:white;text-align:center;padding:30px 20px;font-size:.9rem;}
 .formulario{
   background:#f8fafc;
@@ -56,7 +71,7 @@
 }
 
 .formulario h2{
-  color:var(--primario);
+  color:var(--primary);
   margin-bottom:10px;
 }
 
@@ -91,6 +106,22 @@
   <p>Obtené una <strong>tasación profesional, real y sin compromiso</strong> en Olavarría y alrededores. Te acompaño en todo el proceso para que vendas o alquiles con seguridad, rapidez y transparencia.</p>
   <a href="https://wa.me/5492284570400" target="_blank">Solicitar tasación ahora</a>
 </header>
+<section class="formulario">
+  <h2>Solicitá tu tasación sin compromiso</h2>
+  <p>Completá el formulario y me contacto a la brevedad.</p>
+
+<form action="https://wa.me/5492284570400" method="get" target="_blank">
+  <input type="text" id="nombre" placeholder="Tu nombre" required>
+  <input type="text" id="propiedad" placeholder="Tipo de propiedad (casa, depto, lote)" required>
+  <input type="text" id="zona" placeholder="Zona / Barrio" required>
+
+<button type="button" class="cta-btn" onclick="enviarWhatsApp()">
+  Solicitar tasación
+</button>
+</form>
+
+
+</section>
 
 <section>
   <div class="grid">
@@ -131,6 +162,18 @@
 <footer>
   <p>© 2026 Alonso Facundo Negocios Inmobiliarios · San Martin 1975, Olavarría, Buenos Aires</p>
 </footer>
+<script>
+function enviarWhatsApp(){
+  var nombre = document.getElementById('nombre').value;
+  var propiedad = document.getElementById('propiedad').value;
+  var zona = document.getElementById('zona').value;
+
+  var mensaje = `Hola, soy ${nombre}. Quiero tasar una ${propiedad} en ${zona}.`;
+
+  var url = "https://wa.me/5492284570400?text=" + encodeURIComponent(mensaje);
+  window.open(url, '_blank');
+}
+</script>
 
 </body>
 </html>
